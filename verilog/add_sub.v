@@ -7,4 +7,9 @@ module add_sub (
     output wire [31:0] r_o
 );
 
+    //Working : assign {carry_o, r_o} = sub_i ? a_i-b_i : a_i+b_i; 
+    // Prefered for explicit 2's complement : 
+    assign {carry_o, r_o} = (a_i + (sub_i ? (~b_i)+1 : b_i));
+    assign zero_o = (r_o == 32'b0);
+
 endmodule
