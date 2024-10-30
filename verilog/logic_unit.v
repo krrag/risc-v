@@ -11,7 +11,7 @@ module logic_unit (
         case(op_i)
             3'b100 :    r_reg = a_i ^ b_i;
             3'b110 :    r_reg = a_i | b_i;
-            3'b111 :    r_reg = a_i ^ b_i;
+            3'b111 :    r_reg = a_i & b_i;
             default :   r_reg = 32'b0;
         endcase
     end;
