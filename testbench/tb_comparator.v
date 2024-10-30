@@ -35,25 +35,25 @@ module tb_comparator ();
         $dumpvars(0, tb_comparator);
 
         // Test EQ with a equals b
-        a_31_i = 0; b_31_i = 0; diff_31_i = 0; carry_i = 0; zero_i = 0; op_i = EQ;
+        a_31_i = 0; b_31_i = 0; diff_31_i = 0; carry_i = 0; zero_i = 1; op_i = EQ;
         #10;  // wait for circuit to settle
         `ASSERT(r_o == 1)
         #10;
 
         // Test EQ with a not equals b
-        a_31_i = 0; b_31_i = 0; diff_31_i = 0; carry_i = 0; zero_i = 1; op_i = EQ;
+        a_31_i = 0; b_31_i = 0; diff_31_i = 0; carry_i = 0; zero_i = 0; op_i = EQ;
         #10;  // wait for circuit to settle
         `ASSERT(r_o == 0);
         #10;
 
         // Test NE with a equals b
-        a_31_i = 0; b_31_i = 0; diff_31_i = 0; carry_i = 0; zero_i = 0; op_i = NE;
+        a_31_i = 0; b_31_i = 0; diff_31_i = 0; carry_i = 0; zero_i = 1; op_i = NE;
         #10;  // wait for circuit to settle
         `ASSERT(r_o == 0);
         #10;
 
         // Test NE with a not equals b
-        a_31_i = 0; b_31_i = 0; diff_31_i = 0; carry_i = 0; zero_i = 1; op_i = NE;
+        a_31_i = 0; b_31_i = 0; diff_31_i = 0; carry_i = 0; zero_i = 0; op_i = NE;
         #10;  // wait for circuit to settle
         `ASSERT(r_o == 1);
         #10;
