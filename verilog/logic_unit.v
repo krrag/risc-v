@@ -5,4 +5,17 @@ module logic_unit (
     output wire [31:0] r_o
 );
 
+reg [31:0] r_reg;
+
+    always @(*) begin
+        case(op_i)
+            3'b100 :    r_reg = a_i ^ b_i;
+            3'b110 :    r_reg = a_i | b_i;
+            3'b111 :    r_reg = a_i ^ b_i;
+            default :   r_reg = 32'b0;
+        endcase
+    end;
+
+    assign r_o = r_reg;
+
 endmodule
