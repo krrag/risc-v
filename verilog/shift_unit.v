@@ -6,7 +6,7 @@ module shift_unit (
     output wire [31:0] r_o
 );
 
-reg [31:0] r_reg;
+    reg [31:0] r_reg;
 
     always @(*) begin
         case(op_i)
