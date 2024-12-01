@@ -1,5 +1,7 @@
 # Testbenches pour le labo 2 de computer architecture
 
+## Courtesy of Ectalite : https://github.com/LesFousDeLaPasserelle/CS200-TestbenchLab2
+
 Pour importer dans votre lab:
 
 `git clone https://github.com/LesFousDeLaPasserelle/CS200-TestbenchLab2.git testbench`
