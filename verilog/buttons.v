@@ -5,7 +5,7 @@ module buttons (
     input  wire [31:0] addr_i,
     input  wire [ 9:0] push_i,
     input  wire [ 7:0] switch_i,
-    output wire [31:0] rdata_o
+    output reg [31:0] rdata_o
 );
 
 // Internal register to hold button and switch states
@@ -22,8 +22,8 @@ reg saved_read;
                 rdata_o <= val_r;
             end
             if (en_i && addr_i == 32'h70000000) begin
-                val_r[9:0]   = push_i;      // push buttons are in bits [9:0]
-                val_r[23:16] = switch_i;    // switches are in bits [23:16]
+                val_r[9:0]   <= push_i;      // push buttons are in bits [9:0]
+                val_r[23:16] <= switch_i;    // switches are in bits [23:16]
                 saved_read <= 1'b1;
             end;
         end

@@ -1,9 +1,9 @@
 module decoder (
     input  wire [31:0] addr_i,
-    output wire        en_ram_o,
-    output wire        en_leds_o,
-    output wire        en_7_seg_lcd_o,
-    output wire        en_buttons_o
+    output reg        en_ram_o,
+    output reg        en_leds_o,
+    output reg        en_7_seg_lcd_o,
+    output reg        en_buttons_o
 );
 
     always @(*) begin

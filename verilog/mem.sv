@@ -6,7 +6,7 @@ module mem #(
     input  wire        we_i,
     input  wire [31:0] addr_i,
     input  wire [31:0] wdata_i,
-    output wire [31:0] rdata_o
+    output reg [31:0] rdata_o
 );
 
   //////////////////////
@@ -58,15 +58,7 @@ module mem #(
 
   always @(posedge clk_i) begin
     rdata_o   <= 32'h00000000;
-    if (!rst_ni) begin
-      saved_addr <= 32'h00000000;
-      saved_read <= 1'b0;
-
-      // Reset memory, do not use mem_init due to uncertainty about multiple fread/fclose side-effects
-      for (int i = 0; i < (B - BASE_ADDR) >> 2; i = i + 1) begin
-        mem_wr(BASE_ADDR + (i << 2), 32'h00000000, 4'b1111);
-      end
-    end else begin
+    begin
       // Handle previously saved read
       if (saved_read) begin
         rdata_o <= mem_rd(saved_addr);
