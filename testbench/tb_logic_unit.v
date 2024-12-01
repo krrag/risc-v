@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`define ASSERT(ARG) if (!(ARG)) begin $error("Error"); $finish; end
 
 module tb_logic_unit ();
     // Inputs
@@ -27,16 +28,28 @@ module tb_logic_unit ();
         $dumpvars(0, tb_logic_unit);
 
         // Test XOR operation
-        #20;  // wait for circuit to settle
+        a_i = 32'hF0; b_i = 32'hFF; op_i = XOR;
+        #10;  // wait for circuit to settle
+       `ASSERT(r_o == 32'h0F);
+        #10;
 
         // Test OR operation
-        #20;  // wait for circuit to settle
+        a_i = 32'hF0; b_i = 32'hFF; op_i = OR;
+        #10;  // wait for circuit to settle
+       `ASSERT(r_o == 32'hFF);
+        #10;
 
         // Test AND operation
-        #20;  // wait for circuit to settle
+        a_i = 32'hF0; b_i = 32'hFF; op_i = AND;
+        #10;  // wait for circuit to settle
+       `ASSERT(r_o == 32'hF0);
+        #10;
 
         // Test undefined operation (should default to all zeros)
-        #20;  // wait for circuit to settle
+        a_i = 0; b_i = 0; op_i = 0;
+        #10;  // wait for circuit to settle
+       `ASSERT(r_o == 0);
+        #10;
 
         // Finish simulation
         $finish;

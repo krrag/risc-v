@@ -147,7 +147,7 @@ module tb_comparator ();
         #10;  // wait for circuit to settle
        `ASSERT(r_o == 0);
         #10;
-        
+
         // Finish simulation
         $finish();
     end

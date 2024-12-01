@@ -15,4 +15,11 @@ module register_file (
   //! Use it to store the register file contents
   reg [31:0] reg_array_r[32];
 
+  assign a_o = reg_array_r[aa_i];
+  assign b_o = reg_array_r[ab_i];
+
+  always @(posedge clk_i) begin
+    if (wren_i && aw_i != 5'd0)
+      reg_array_r[aw_i] <= wrdata_i;
+  end;
 endmodule

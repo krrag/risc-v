@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`undef ASSERT
 `define ASSERT(ARG) if (!(ARG)) begin $error("Error: a_i=0x%0h r_o=0x%0h", a_i, r_o); $finish; end
 
 module tb_shift_unit ();

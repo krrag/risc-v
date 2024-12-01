@@ -1,0 +1,31 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Sat Nov 16 13:56:46 2024
+[*]
+[dumpfile] "/Users/xavierhueber/SynologyDrive/EPFL/Passerelle_HES-IC/Computer_architecture_CS-200/Lab/lab2/lab2.2/dump/tb_cpu.vcd"
+[dumpfile_mtime] "Sat Nov 16 13:46:01 2024"
+[dumpfile_size] 47349
+[savefile] "/Users/xavierhueber/SynologyDrive/EPFL/Passerelle_HES-IC/Computer_architecture_CS-200/Lab/lab2/lab2.2/testbench/tb_cpu.gtkw"
+[timestart] 52930
+*-14.000000 88720 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[treeopen] tb_cpu.
+[treeopen] tb_cpu.uut.
+[sst_width] 253
+[signals_width] 266
+[sst_expanded] 1
+[sst_vpaned_height] 219
+@28
+tb_cpu.uut.clk_i
+tb_cpu.uut.ir_en_w
+tb_cpu.test_failed
+@22
+tb_cpu.rdata_i[31:0]
+tb_cpu.uut.pc_inst.pc[31:0]
+tb_cpu.uut.pc_inst.imm_i[31:0]
+tb_cpu.uut.rf_inst.aw_i[4:0]
+tb_cpu.uut.rf_inst.reg_array_r[3][31:0]
+tb_cpu.uut.rf_inst.wrdata_i[31:0]
+@29
+tb_cpu.uut.rf_inst.wren_i
+[pattern_trace] 1
+[pattern_trace] 0

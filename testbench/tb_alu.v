@@ -49,7 +49,7 @@ module tb_alu ();
   integer opcode, op_a, op_b, op_low_b;
 
   // Helper task for checking results
-  task check_result;
+  task static check_result();
     input [31:0] expected_result;
     begin
       #10;  // Wait for outputs to settle
@@ -96,7 +96,17 @@ module tb_alu ();
             case (op_i[5:4])
               ADD_SUB: check_result(op_i[3] ? a_i - b_i : a_i + b_i);
               COMP: begin
-                //TODO! Implement the comparison operations, you can use the localparams defined above to help you
+                reg signed [31:0] sa_i = a_i;
+                reg signed [31:0] sb_i = b_i;
+                case (op_i[2:0])
+                  F3_BEQ:  check_result({31'b0, a_i == b_i});
+                  F3_BNE:  check_result({31'b0, a_i != b_i});
+                  F3_BLT:  check_result({31'b0, sa_i < sb_i});
+                  F3_BGE:  check_result({31'b0, sa_i >= sb_i});
+                  F3_BLTU: check_result({31'b0, a_i < b_i});
+                  F3_BGEU: check_result({31'b0, a_i >= b_i});
+                  default: check_result(32'd0);
+                endcase
               end
               LOGIC: begin
                 case (op_i[2:0])
@@ -116,6 +126,7 @@ module tb_alu ();
                   default: check_result(32'd0);
                 endcase
               end
+              default: check_result(32'd0);
             endcase
           end
         end

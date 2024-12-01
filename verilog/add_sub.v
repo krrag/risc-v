@@ -10,7 +10,7 @@ module add_sub (
     //Working : assign {carry_o, r_o} = sub_i ? a_i-b_i : a_i+b_i;
     // Prefered for explicit 2's complement :
     //edge case for 0 necessitates to set carry during sub for correct comparison
-    assign {carry_o, r_o} = {1'b0,a_i} + (sub_i ? ({1'b0,(~b_i)}+1) : {1'b0,b_i}); 
+    assign {carry_o, r_o} = {1'b0,a_i} + (sub_i ? ({1'b0,(~b_i)}+1) : {1'b0,b_i});
     assign zero_o = (r_o == 32'b0);
 
 endmodule
