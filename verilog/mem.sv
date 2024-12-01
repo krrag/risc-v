@@ -70,7 +70,6 @@ module mem #(
           mem_wr(addr_i, wdata_i, 4'b1111); // Full word write
         end else begin
           // Initiate a new read during next cycle
-          rdata_o   <= mem_rd(addr_i);
           saved_addr <= addr_i;
           saved_read <= 1'b1;
         end
