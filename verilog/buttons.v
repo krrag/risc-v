@@ -12,13 +12,10 @@ module buttons (
 reg [31:0] val_r;
 reg saved_read;
 
-    always @(*) begin
-        val_r[9:0]   = push_i;      // push buttons are in bits [9:0]
-        val_r[23:16] = switch_i;    // switches are in bits [23:16]
-    end
-
     always @(posedge clk_i) begin
         rdata_o <= 32'h00000000;
+        val_r[9:0]   = push_i;      // push buttons are in bits [9:0]
+        val_r[23:16] = switch_i;    // switches are in bits [23:16]
         if (!rst_ni) begin
             val_r <= 32'h00000000;
             saved_read <= 1'b0;
